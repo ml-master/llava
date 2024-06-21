@@ -1,4 +1,4 @@
-# 本文件用于测试微调后的llava模型，生成模型的输入数据集
+# 本文件用于测试微调后的llava模型，生成模型的输入数据集，存储在Path/to/finetune/quesion.jsonl中
 # gossipcop-1202546208_top_img.png 这张图片打不开,使用spcae.png代替
 import json
 
@@ -8,7 +8,7 @@ with open('Path/to/test.json', 'r') as file:
     data = json.load(file)
 
 # 准备写入quesion.jsonl文件
-with open('Path/to/quesion.jsonl', 'w') as file:
+with open('Path/to/finetune/quesion.jsonl', 'w') as file:
     question_id = 0
     for value in data:
         # 根据has_top_img决定image字段
