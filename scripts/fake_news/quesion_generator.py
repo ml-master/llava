@@ -1,4 +1,4 @@
-# 数据(style)准备，将原始数据转换成合法的输入
+# 本文件用于测试微调后的llava模型，生成模型的输入数据集
 # gossipcop-1202546208_top_img.png 这张图片打不开,使用spcae.png代替
 import json
 
