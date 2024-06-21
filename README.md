@@ -21,3 +21,35 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 4. 下载权重（liuhaotian/llava-v1.5-7b):https://huggingface.co/liuhaotian/llava-v1.5-7b
+
+## 数据预处理
+打乱原始数据，按照8:2的比例将数据分为训练集和测试集
+```Shell
+python ./scripts/fake_news/data-classification.py
+```
+## 不微调，直接利用llava模型自带的推理能力进行假新闻检测
+```Shell
+python ./llava/eval/model_vqa.py \
+    --model-path path/to/llava-v1.5-7b \
+    --question-file \
+    path/to/quesion.jsonl \
+    --image-folder \
+    path/to/style_img \
+    --answers-file \
+    path/to/answer.jsonl
+```
+## 使用rola微调llava
+1.在训练集上微调
+```Shell
+sh ./scripts/v1_5/finetune_task_lora.sh
+```
+2.融合rola的权重与base-model
+```Shell
+python ./scripts/merge_lora_weights.py  \
+    --model-path path/to/llava-v1.5-7b-task-lora \
+    --model-base path/to/llava-v1.5-7b \
+    --save-model-path path/to/merge_model
+```
+## 实验结果
+
+
