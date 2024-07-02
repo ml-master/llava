@@ -28,7 +28,9 @@ pip install flash-attn --no-build-isolation
 python ./scripts/fake_news/data-classification.py
 ```
 根据上面打乱后的数据集，生成适合llava模型输入的数据集
+```Shell
 python ./scripts/fake_news/question_generator.py
+```
 ## 不微调，直接利用llava模型自带的推理能力进行假新闻检测
 ```Shell
 python ./llava/eval/model_vqa.py \
