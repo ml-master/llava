@@ -1,14 +1,14 @@
-# 本文件用于测试微调后的llava模型，生成模型的输入数据集，存储在Path/to/finetune/quesion.jsonl中
+# 根据按照8:2比例划分好的训练集和测试集。生成适合llava模型输入的数据集。（稍微改变数据的格式）
 # gossipcop-1202546208_top_img.png 这张图片打不开,使用spcae.png代替
 import json
 
 
 # 读取数据文件
-with open('Path/to/test.json', 'r') as file:
+with open('Path/to/train.json', 'r') as file:
     data = json.load(file)
 
 # 准备写入quesion.jsonl文件
-with open('Path/to/finetune/quesion.jsonl', 'w') as file:
+with open('Path/to/quesion_train.jsonl', 'w') as file:
     question_id = 0
     for value in data:
         # 根据has_top_img决定image字段
@@ -32,4 +32,4 @@ with open('Path/to/finetune/quesion.jsonl', 'w') as file:
         file.write('\n')  # 每个JSON对象后添加换行符
         question_id += 1
 
-print("quesion.jsonl文件已生成")
+print("quesion_train.jsonl文件已生成")
