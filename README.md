@@ -67,5 +67,9 @@ python ./llava/eval/model_vqa.py \
 ```
 
 ## 实验结果
+| 模型 | TT(train) | FF(train) | Total(train) | TT(test) | FF(test) | Total(test) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| llava | 58.25% | 52.49% | 56.87% | 59.28% | 52.30% | 57.59% |
+| llava+LoRA | 92.03% | 71.19% | 87.02% | 92.49% | 64.39% | 85.70% |
 
 
